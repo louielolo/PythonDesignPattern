@@ -16,8 +16,11 @@ import time
 class Singleton(object):#抽象单类
     def __new__(cls,*args,**kw):
         if not hasattr(cls,'_instance'):
-            orig = super(Singleton,cls)
+            orig = super() #超类使用父方法
             cls._instance = orig.__new__(cls,*args,**kw)
+            print('success instance point',cls._instance)
+        else:
+            print('failed instance point',cls._instance)
         return cls._instance
 
 class Bus(Singleton):
